@@ -6,6 +6,8 @@ class UsuarioController {
   static criarUsuario(req, res) {
     const { email, senha, idade } = req.body;
 
+    // Verificando se todos os campos estão preenchidos
+
     if (!email || !senha || !idade) {
       return res.status(400).json({ error: 'Preencha todos os campos corretamente.' });
     }
@@ -20,6 +22,17 @@ class UsuarioController {
         res.status(201).json({ message: 'Usuário criado com sucesso!' });
       }
     );
+
+    /* Ou
+
+     const query = 'INSERT INTO usuarios (senha, email, idade) VALUES ( 
+        '${senha}',
+        '${email}',
+        '${idade}'
+     )';
+
+     */
+
   }
 
   static buscarTodosUsuarios(req, res) {
@@ -30,6 +43,8 @@ class UsuarioController {
       res.status(200).json(results);
     });
   }
+
+  // Método para buscar todos os usuários por idade decrescente, com DESC
 
   static buscarTodosUsuariosPorIdadeDec(req, res) {
     db.query('SELECT * FROM usuarios ORDER BY idade desc', (error, results) => {

@@ -11,5 +11,6 @@ INSERT INTO `usuarios` (`id`, `email`, `senha`, `idade`) VALUES
 ('2', 'igor.junior@gmail.com', 'senhaBemForte123', '10'),
 ('3', 'adriano.ferreira19@gmail.com', 'senhaModerada2030', '50');
 
+-- exemplo do banco de dados da correção 
 
 COMMIT;
